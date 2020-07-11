@@ -8,7 +8,7 @@ module.exports = {
         const serializedProducts = products.map(product => {
             return {
                 ...product,
-                image_url: `http://192.168.0.116:3333/uploads/${product.image}`
+                image_url: `https://utility-thermometer.herokuapp.com/uploads/${product.image}`
             }
         });
 
@@ -25,7 +25,7 @@ module.exports = {
 
         const serializedProduct = {
             ...products,
-            image_url: `http://192.168.0.116:3333/uploads/${products.image}`
+            image_url: `https://utility-thermometer.herokuapp.com/uploads/${products.image}`
         };
 
         return response.json(serializedProduct);
