@@ -8,7 +8,7 @@ module.exports = {
         const serializedProducts = products.map(product => {
             return {
                 ...product,
-                image_url: `https://utility-thermometer.herokuapp.com/uploads/${product.image}`
+                image_url: `https:utility-thermometer.herokuapp.com/uploads/${product.image}`
             }
         });
 
@@ -17,15 +17,15 @@ module.exports = {
     async show(request, response) {
         const { id } = request.params;
 
-        const products = await knex('products').where('id', id).first();
+        const product = await knex('products').where('id', id).first();
 
-        if (!products) {
-            return response.status(400).json({ message: "Product not found." })
+        if (!product) {
+            return response.status(400).json({ message: "Produto não encontrado" })
         }
 
         const serializedProduct = {
-            ...products,
-            image_url: `https://utility-thermometer.herokuapp.com/uploads/${products.image}`
+            ...product,
+            image_url: `https:utility-thermometer.herokuapp.com/uploads/${product.image}`
         };
 
         return response.json(serializedProduct);
@@ -33,6 +33,13 @@ module.exports = {
     async create(request, response) {
         const { name, price } = request.body;
         const utility = thermometerUtility(price);
+
+        const productValidation = await knex('products').where('name', name);
+
+        if (productValidation != null) {
+            return response.status(200).json({ message: 'Produto já existe'})
+        }
+
         const product = {
             name,
             price,
