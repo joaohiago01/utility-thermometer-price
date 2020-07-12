@@ -4,7 +4,7 @@ exports.up = function (knex) {
         table.increments('id').primary();
         table.string('name').notNullable();
         table.decimal('price', 4, 2).notNullable();
-        table.string('image').notNullable();
+        table.text('image').notNullable();
         table.string('utility');
     });
 };
