@@ -9,7 +9,7 @@ Application that will allow the user to insert products in a list and check if t
 ## :pushpin: Table of Contents
 
 <!--ts-->
-   * [Description](#moneybag-description)
+   * [Description](#dollar-description)
    * [Features](#key-features)
    * [Technologies](#computer-technologies)
    * [Pre-Requisites](#scroll-pre-requisites)
@@ -53,6 +53,7 @@ $ yarn install
 # Run server
 $ yarn dev
 ```
+## [Live Demo Heroku](https://utility-thermometer.herokuapp.com/)
 
 ## :closed_book: License
 
